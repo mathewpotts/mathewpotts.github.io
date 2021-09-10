@@ -13,15 +13,18 @@ body
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
-	background: #202020 url(images/img01.jpg) repeat;
-}
-
-body,input,textarea,select
-{
+	background: #202020 url(images/background-stars-25.jpg) repeat;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 300;
 	font-size: 11pt;
 	line-height: 1.75em;
+}
+
+hr
+{
+	color: #FFF;
+	border-width: thin;
+	border-style: solid;
 }
 
 h1,h2,h3,h4,h5,h6
@@ -49,47 +52,10 @@ em, i
 	font-style: italic;
 }
 
-/* Don't forget to set this to something that matches the design */
-a
-{
-	color: #ff0000;
-}
-
-sub
-{
-	position: relative;
-	top: 0.5em;
-	font-size: 0.8em;
-}
-
-sup
-{
-	position: relative;
-	top: -0.5em;
-	font-size: 0.8em;
-}
-
-hr
-{
-	border: 0;
-	border-top: solid 1px #ddd;
-}
-
-blockquote
-{
-	border-left: solid 0.5em #ddd;
-	padding: 1em 0 1em 2em;
-	font-style: italic;
-}
-
 p, ul, ol, dl, table
 {
 	margin-bottom: 1em;
-}
-
-br.clear
-{
-	clear: both;
+	color: #fff;
 }
 
 /*********************************************************************************/
@@ -101,7 +67,80 @@ br.clear
     margin-right: auto;
 	height: inherit;
     width: 1200px;
+}
+
+/*********************************************************************************/
+/* row                                                                           */
+/*********************************************************************************/
+
+.row
+{
 	background: inherit;
+	width: inherit;
+	margin: inherit;
+	display: block;
+	position: relative;
+	height: 200px;
+}
+
+.row-last
+{
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-bottom: medium;
+	width: inherit;
+	margin: inherit;
+	display: block;
+	position: relative;
+	height: 200px;
+}
+
+.row-last::after {
+  content: "";
+  clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.row::after {
+  content: "";
+  clear: both;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+
+
+/*********************************************************************************/
+/* Overlay                                                                       */
+/*********************************************************************************/
+
+.overlay-header
+{
+	padding: 1em 3em;
+	border-style: solid;
+	border-left-style: hidden;
+	border-right-style: hidden;
+	border-color: #FFF;
+	color: #FFF;
+}
+
+#row-tile-overlay
+{
+	background-color:rgba(0,0,0,0.85);
+	border-style: solid;
+	border-bottom-style: hidden;
+	border-top-style: hidden;
+	border-color: #FFFFFF;
+	border-left-width: medium;
+	height: inherit;
+}
+
+#row-tile-overlay-last{
+	border-style: solid;
+	border-color: #FFFFFF;
+	border-top-style: hidden;
+	background-color:rgba(0,0,0,0.85);
 }
 
 /*********************************************************************************/
@@ -195,7 +234,6 @@ nav li.active a
 	
 main
 {
-	background: inherit;
 	position: relative;
 	color: #FFF;
 	flex: 1;
@@ -212,30 +250,129 @@ main .container
 /* Portrait                                                                      */
 /*********************************************************************************/
 	
-#portrait
+.portrait
 {
 	position: absolute;
 	left: 0em;
 	padding: 0em;
 }
 
-#portrait img
+.portrait img
 {
     padding: 0em;
     display: block;
     border-radius: 100%;
 }
 
+#portrait-ed
+{
+	padding: 1.5em;
+	left: 10em;
+}
+
+#portrait-research
+{
+	padding: 1em;
+	left: 10em;
+}
+
+#portrait-main
+{
+	padding-top: 5em;
+	left: 7em;
+}
+
 /*********************************************************************************/
-/* about me                                                                      */
+/* Info box                                                                      */
 /*********************************************************************************/
 
-#about-me
+.info-box
 {
 	position: absolute;
 	right: 0em;
 	width: 600px;
 	padding: 0em 2em;
+	color: #fff;
+}
+.info-box p 
+{
+	text-indent: 1.5em;
+}
+
+.info-box a
+{
+	display: block;
+	letter-spacing: 0.06em;
+	text-decoration: none;
+	text-transform: uppercase;
+	outline: 0;
+	color: #CC99CC;
+}
+
+.info-box a:hover
+{
+	text-decoration: underline;
+}
+
+#info-ed, #info-ed-uofu
+{
+	right: 10em;
+}
+
+#info-re
+{
+	right: 100px;
+	margin-left:auto;
+	margin-right:auto;
+	width: 950px;
+	color: #FFF; 
+}
+
+#info-re h3
+{
+	text-indent: 0;
+	padding-left: 200px;
+	color: #fff;
+}
+
+#info-re p, #info-re ul
+{
+	text-indent: 0;
+	padding-left: 200px;
+	color: #fff;/*#D4D4D4*/
+}
+
+#info-re a:hover
+{
+	color: #EB84EB;
+}
+
+#info-re .re
+{
+	padding-left: 225px;
+}
+
+#info-re ul
+{
+	padding-left: 4em;
+}
+
+#info-ed-uofu
+{
+	padding-top: 1em;
+}
+
+#info-ed-uofu h3, #info-re h3, #info-re a, .p-inline
+{
+	display: inline;
+    vertical-align: top;
+	text-transform: none;
+}
+
+#info-re .p-inline
+{
+	padding-left: 0.5em;
+	color: #fff;/*#D4D4D4;*/
 }
 
 /*********************************************************************************/
@@ -250,9 +387,9 @@ footer
 }
 
 footer .container
-	{
-		position: relative;
-		padding: 0em 0em;
-		text-align: center;
-	}
+{
+	position: relative;
+	padding: 0em 0em;
+	text-align: center;
+}
 
