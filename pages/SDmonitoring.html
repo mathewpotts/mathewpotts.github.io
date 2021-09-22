@@ -25,9 +25,9 @@
 		</div>
 	</header>
 	<main>
-		<div class="container" style="height: 4400px">
+		<div class="container" style="height: 4800px">
 			<div class="row" id="row-tile-overlay" style="height: 400px">
-				<div class="overlay-header"><h1>SD Monitoring</h1></div>
+				<div class="overlay-header"><h1>Surface Detector Monitoring</h1></div>
 				<div class="info-box" id="info-pro">
 					<br>
 					<div class="portrait" id="toc">
@@ -51,19 +51,19 @@
 							The Telescope Array (TA) has 507 Surface detectors (SDs) surrounded by 3 Fluorecenses Detectors (FDs). TA is a hybrid detector using both FDs, observing the profile of the Extensive Air Shower (EAS), and SDs, detecting high energy charged particles passing through the scintillator, to reconstruct the energy and other parameters of cosmic rays. 
 						</p>
 						<p>
-							A critical part of daily operations at TA is monitoring/diagonising of errors from the SD. Every day SD errors must be checked and determined whether they can be fixed remotely or they have to be accessed in person. Problematic SDs are added to the "access list." A colleague and I optimized the process of checking whether an SD's error is new or already known problematic SD using a Python ETL (Extract Transform Load) program. I will also talk about some of my work with SD maintinance.
+							A critical part of daily operations at TA is monitoring/diagnosing errors from the SD. Every day SD errors must be checked and determined whether they can be fixed remotely or they have to be accessed in person. Problematic SDs are added to the "access list." A colleague and I optimized the process of checking whether an SD's error is new or already known problematic SD using a Python ETL (Extract Transform Load) program. I will also talk about some of my work with SD maintenance.
 						</p>
 					</div>
 				</div>
-			<div class="row" id="row-tile-overlay-last" style="height: 4000px">
+			<div class="row" id="row-tile-overlay-last" style="height: 4400px">
 				<div class="info-box" id="info-pro">
 						<h3 id="SD_challenges">Challenges</h3>
 						<p style="text-indent: 1.5em;">
-							The main challenge that we faced creating our program that was the aged infastructure used for SD monitoring. The SD monitoring server uses an older version of Vine Linux that didn't support many of things we wanted to do with Python. These problems could have been overcome by manually building the prerequisest Python version and libraries on the server, but due to a lack of administrative permissions it was easier to create a two step process of achieveing our goal.
+							The main challenge that we faced creating our program that was the aged infrastructure used for SD monitoring. The SD monitoring server uses an older version of Vine Linux that didn't support many of the things we wanted to do with Python. These problems could have been overcome by manually building the prerequisites Python version and libraries on the server, but due to a lack of administrative permissions, it was easier to create a two-step process of achieving our goal.
 						</p>
 						<h3 id="SD_program">Program</h3>
 						<p style="text-indent: 1.5em;">
-							These programs were designed to make SD monitoring easier and more efficient. The first step of the process is the <i>log-in script</i>. I call the program startsdshift.py. This program extracts the access list off a private wiki, stores it in a plain text document, sends it to the SD monitoring server, then logs you into the SD monitoring server. The second part of the process is the <i>cross-comparision script</i>. This program is called allchecks.py. It reads the plain text document sent by the <i>log-in script</i> and checks whether the type of error an SD has on a given day is already noted on the access list. It then displays only the SDs that have new errors AND SDs that are on the access list that may have recovered. This program reduces both the time and human error that comes from comparing two lists of numbers. 
+							These programs were designed to make SD monitoring easier and more efficient. The first step of the process is the <i>log-in script</i>. I call the program startsdshift.py. This program extracts the access list of a private wiki, stores it in a plain text document, sends it to the SD monitoring server, then logs you in to the SD monitoring server. The second part of the process is the <i>cross-comparision script</i>. This program is called allchecks.py. It reads the plain text document sent by the <i>log-in script</i> and checks whether the type of error an SD has on a given day is already noted on the access list. It then displays only the SDs that have new errors AND SDs that are on the access list that may have recovered. This program reduces both the time and human error that comes from comparing two lists of numbers. 
 						</p>
 						<h4 id="SD_startshift">startsdshift.py</h4>
 						<p style="text-indent: 1.5em;">
@@ -120,7 +120,7 @@
 
 						<h4 id="SD_allcheck">allchecks.py</h4>
 						<p style="text-indent: 1.5em;">
-							Code
+							This class code is written in Python 2 and the full script is on the SD monitoring server. We used a series of dictionaries and regular experession checks to determine if an SD entry was about a particular error. 
 						</p>
 						<!-- HTML generated using hilite.me -->
 					<div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;color:#000"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f"># CrossCheck added with work from Isaac Buckland and Mathew Potts</span>
@@ -217,8 +217,11 @@
 
 						<h3 id="SD_maint">Field Maintinance</h3>
 						<p style="text-indent: 1.5em;">
-							The other half of SD monitoring is SD maintinace. This involves driving off road in the deserts West of Delta, Utah to access SDs.
+							The other half of SD monitoring is SD maintenance. This involves driving off the road in the deserts west of Delta, Utah to access SDs. The actual work done on the SDs varies widely. I have replaced batteries, GPS/radio antennas and occasionally removed the mainboards entirely to modify them. Part of the doing SD maintenance involves submitting paperwork to the Bureau of Land Management (BLM); I have created a bash script that makes this process easier. Below are some images of some an SD that I accessed.
 						</p>
+						<center><img src="../assets/images/20200820_092136.jpg" style="width:500px" alt="TA SD"/><p>(Above) TASD after I accessed it on 8/20/2020. I performed and onsite reboot and reset the reoot timer.<br>
+						(Below) Eletronic Compononets of the SD, that I accessed. The eletronics is composed of many boards that are housed in a box behind their solar panel.</p> </center>
+					<center><img src="../assets/images/20200816_203056.jpg" alt="TA SD Main Board" style="width:400px;padding-bottom:225px"/></center>
 				</div>
 			</div>
 		</div>
