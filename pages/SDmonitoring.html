@@ -2,10 +2,10 @@
 <html>
 <head>
 	<link rel="stylesheet" href="../assets/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
 	<link rel="icon" href="/assets/images/favicon.png" type="image/png">
 	<meta charset="utf-8">
-	<title>Mathew Potts</title>
+	<title>SD Monitoring</title>
 </head>
 
 <body>
@@ -25,36 +25,107 @@
 		</div>
 	</header>
 	<main>
-		<div class="container" style="height: 500px">
-			<div class="row" id="row-tile-overlay-last" style="height: 500px">
+		<div class="container" style="height: 3400px">
+			<div class="row" id="row-tile-overlay" style="height: 400px">
 				<div class="overlay-header"><h1>SD Monitoring</h1></div>
-				<div class="info-box" id="info-re">
+				<div class="info-box" id="info-pro">
 					<br>
 					<div class="portrait" id="toc">
 						<p class="toc_title">Table of Contents:</p>
 						<ol>
-							<li><a href="#UHECR_intro">Introduction</a></li>
-							<li><a href="#UHECR_abstract">Challenges</a></li>
-							<li><a href="#UHECR_MC">Program</a>
+							<li><a href="#SD_intro">Introduction</a></li>
+							<li><a href="#SD_challenges">Challenges</a></li>
+							<li><a href="#SD_program">Program</a>
 								<ol>
-									<li><a href="#UHECR_resolution" class="inner-ol">startsdshift.py</a></li>
-									<li><a href="#UHECR_data-mc_comp" class="inner-ol">allchecks.py</a></li>
+									<li><a href="#SD_startshift" class="inner-ol">startsdshift.py</a></li>
+									<li><a href="#SD_allcheck" class="inner-ol">allchecks.py</a></li>
 								</ol>
 							</li>
-							<li><a href="#UHECR_thesis_man">Field Maintaince</a></li>
+							<li><a href="#SD_maint">Field Maintaince</a></li>
 						</ol>
 					</div>
-					<div class="info-box" id="info-Espec">
-						<h3 id="">Introduction</h3>
+				</div>
+					<div class="info-box" id="info-Espec" style="right:100px">
+						<h3 id="SD_intro">Introduction</h3>
 						<p>
-							I spent 5 years at the University of Utah conducting research with the Telescope Array Cosmic Ray Observatory with Charles Jui as my thesis advisor. I am currently writing my thesis for my PhD in Physics on the Ultra-High Energy Cosmic Ray energy spectrum (UHECR). My thesis focuses on collecting, processing, and reconstructing data of the new Telescope Array expansion (TAx4) using a hybrid analysis. Hybrid analysis utilizes information from both Surface Detector (SD) and Flourescence Detector (FD) to constrain the reconstructed shower profile. My analysis has yielded the first TAx4 hybrid cosmic ray energy spectrum. I also report the performance of TAx4 and present data-MC comparisions.
+							The Telescope Array (TA) has 507 Surface detectors (SDs) surrounded by 3 Fluorecenses Detectors (FDs). TA is a hybrid detector using both FDs, observing the profile of the Extensive Air Shower (EAS), and SDs, detecting high energy charged particles passing through the scintillator, to reconstruct the energy and other parameters of cosmic rays. 
 						</p>
-						<h3 id="UHECR_abstract">Challenges</h3>
 						<p>
-							The Telescope Array (TA) Cosmic Ray Observatory, located in Millard County, Utah, is the largest cosmic ray detector in the Northern hemisphere. Following the evidence for a hotspot in the arrival directions of the highest energy cosmic rays, TA underwent the TAx4 upgrade to expand the area of our Surface
+							A critical part of daily operations at TA is monitoring/diagonising of errors from the SD. Every day SD errors must be checked and determined whether they can be fixed remotely or they have to be accessed in person. Problematic SDs are added to the "access list." A colleague and I optimized the process of checking whether an SD's error is new or already known problematic SD using a Python ETL (Extract Transform Load) program. I will also talk about some of my work with SD maintinance.
 						</p>
 					</div>
 				</div>
+			<div class="row" id="row-tile-overlay-last" style="height: 3000px">
+				<div class="info-box" id="info-pro">
+						<h3 id="SD_challenges">Challenges</h3>
+						<p style="text-indent: 1.5em;">
+							The main challenge that we faced creating our program that was the aged infastructure used for SD monitoring. The SD monitoring server uses an older version of Vine Linux that didn't support many of things we wanted to do with Python. These problems could have been overcome by manually building the prerequisest Python version and libraries on the server, but due to a lack of administrative permissions it was easier to create a two step process of achieveing our goal.
+						</p>
+						<h3 id="SD_program">Program</h3>
+						<p style="text-indent: 1.5em;">
+							These programs were designed to make SD monitoring easier and more efficient. The first step of the process is the <i>log-in script</i>. I call the program startsdshift.py. This program extracts the access list off a private wiki, stores it in a plain text document, sends it to the SD monitoring server, then logs you into the SD monitoring server. The second part of the process is the <i>cross-comparision script</i>. This program is called allchecks.py. It reads the plain text document sent by the <i>log-in script</i> and checks whether the type of error an SD has on a given day is already noted on the access list. It then displays only the SDs that have new errors AND SDs that are on the access list that may have recovered. This program reduces both the time and human error that comes from comparing two lists of numbers. 
+						</p>
+						<h4 id="SD_startshift">startsdshift.py</h4>
+						<p style="text-indent: 1.5em;">
+							Uses Python 3 Requests and BeautifulSoup libraries to parse the html code of the wiki site that houses the access list into a plain text file. Below is the class that I created to grab the access list: 
+						</p>
+						<!-- HTML generated using hilite.me -->
+						<div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;color:#000"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f">## IMPORT LIBS</span>
+<span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">sys</span>
+<span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">os</span>
+<span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">datetime</span> <span style="color: #fb660a; font-weight: bold">as</span> <span style="color: #ffffff">dt</span>
+<span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">re</span>
+<span style="color: #fb660a; font-weight: bold">try</span><span style="color: #ffffff">:</span>
+    <span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">requests</span>
+    <span style="color: #fb660a; font-weight: bold">from</span> <span style="color: #ffffff">bs4</span> <span style="color: #fb660a; font-weight: bold">import</span> <span style="color: #ffffff">BeautifulSoup</span> <span style="color: #fb660a; font-weight: bold">as</span> <span style="color: #ffffff">bs</span>
+<span style="color: #fb660a; font-weight: bold">except</span><span style="color: #ffffff">:</span>
+    <span style="color: #ffffff">sys.exit(</span><span style="color: #0086d2">&quot;ERROR: Datascrapper requires BeautifulSoup4 &amp; Requests. Please install...&quot;</span><span style="color: #ffffff">)</span>
+
+<span style="color: #008800; font-style: italic; background-color: #0f140f">## GET_ACCESSLIST</span>
+<span style="color: #fb660a; font-weight: bold">class</span> <span style="color: #ffffff">GET_ACCESSLIST:</span>
+    <span style="color: #0086d2">&#39;&#39;&#39;</span>
+<span style="color: #0086d2">    This function is executed when the GET_ACCESSLIST class is called. It checks the date to get the right URL and uses the python requests library to &#39;scrape&#39; the access list off the wiki. Once the request is made the status of the request is check and if is bad (ex. the server is unavailble) it exit the program with error.</span>
+<span style="color: #0086d2">    &#39;&#39;&#39;</span>
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">__init__</span><span style="color: #ffffff">(self,month,year,username,password):</span>
+        <span style="color: #ffffff">mn_str</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">str(month)</span>
+        <span style="color: #ffffff">yr_str</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">str(year)</span>
+        <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">month</span> <span style="color: #ffffff">&lt;</span> <span style="color: #0086f7; font-weight: bold">10</span><span style="color: #ffffff">:</span>
+            <span style="color: #ffffff">self.url</span> <span style="color: #ffffff">=</span> <span style="color: #0086d2">&quot;http://www.cosmicray-ocu.jp/tafdwiki/index.php?SDmaintenance%20&quot;</span><span style="color: #ffffff">+yr_str+</span><span style="color: #0086d2">&quot;%2F0&quot;</span><span style="color: #ffffff">+mn_str</span>
+        <span style="color: #fb660a; font-weight: bold">elif</span> <span style="color: #ffffff">month</span> <span style="color: #ffffff">&gt;=</span> <span style="color: #0086f7; font-weight: bold">10</span><span style="color: #ffffff">:</span>
+            <span style="color: #ffffff">self.url</span> <span style="color: #ffffff">=</span> <span style="color: #0086d2">&quot;http://www.cosmicray-ocu.jp/tafdwiki/index.php?SDmaintenance%20&quot;</span><span style="color: #ffffff">+yr_str+</span><span style="color: #0086d2">&quot;%2F&quot;</span><span style="color: #ffffff">+mn_str</span> 
+        
+        <span style="color: #ffffff">page</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">requests.get(self.url,auth=(username</span><span style="color: #ffffff">,</span><span style="color: #ffffff">password))</span>
+        <span style="color: #fb660a; font-weight: bold">try</span><span style="color: #ffffff">:</span>
+            <span style="color: #ffffff">page.raise_for_status()</span>
+        <span style="color: #fb660a; font-weight: bold">except</span> <span style="color: #ffffff">requests.exceptions.HTTPError</span> <span style="color: #fb660a; font-weight: bold">as</span> <span style="color: #ffffff">e:</span>
+            <span style="color: #ffffff">sys.exit(</span><span style="color: #0086d2">&quot;ERROR: {}&quot;</span><span style="color: #ffffff">.format(e))</span>
+            
+        <span style="color: #ffffff">self.soup</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">bs(page.text,</span><span style="color: #0086d2">&#39;html.parser&#39;</span><span style="color: #ffffff">)</span>
+
+    <span style="color: #0086d2">&#39;&#39;&#39;</span>
+<span style="color: #0086d2">    This function checks the part of the list for anything that doesn&#39;t match the &#39;pattern&#39; of the access list (i.e. SK 1234 - 20191217 - Explaination...) then prints it to a text file that is sent to the crcpc00. This checking helps when people add DAQ towers to the access list which are not need to cross check when doing SD monitoring. It will also help when someone puts an \n before information containted in the access lsit by removing it.</span>
+<span style="color: #0086d2">    &#39;&#39;&#39;</span>
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">bs4_to_file</span><span style="color: #ffffff">(self,idx,filename,file_option):</span>
+        <span style="color: #ffffff">cut_tmp_list</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[]</span>
+        <span style="color: #ffffff">tmp_list</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">re.split(</span><span style="color: #0086d2">&#39;\n+(?=\w+\s\d+)&#39;</span><span style="color: #ffffff">,self.soup.find_all(</span><span style="color: #0086d2">&#39;pre&#39;</span><span style="color: #ffffff">)[idx].get_text())</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">entry</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">tmp_list:</span>
+            <span style="color: #ffffff">match</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">re.match(</span><span style="color: #0086d2">&#39;\w+\s\d+&#39;</span><span style="color: #ffffff">,entry)</span>
+            <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">match:</span>
+                <span style="color: #ffffff">cut_tmp_list.append(entry)</span>
+        <span style="color: #ffffff">outfile</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">open(filename,file_option)</span>
+        <span style="color: #ffffff">outfile.writelines(</span><span style="color: #0086d2">&#39;\n&#39;</span><span style="color: #ffffff">.join(cut_tmp_list)+</span><span style="color: #0086d2">&#39;\n&#39;</span><span style="color: #ffffff">)</span>
+        <span style="color: #ffffff">outfile.close()</span>
+</pre></div>
+						
+
+						<h4 id="SD_allcheck">allchecks.py</h4>
+						<p style="text-indent: 1.5em;">
+							Code
+						</p>
+						<h3 id="SD_maint">Field Maintinance</h3>
+						<p style="text-indent: 1.5em;">
+							The other half of SD monitoring is SD maintinace. This involves driving off road in the deserts West of Delta, Utah to access SDs.
+						</p>
 				</div>
 			</div>
 		</div>
