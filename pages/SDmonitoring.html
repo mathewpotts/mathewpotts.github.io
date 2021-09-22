@@ -25,7 +25,7 @@
 		</div>
 	</header>
 	<main>
-		<div class="container" style="height: 3400px">
+		<div class="container" style="height: 4400px">
 			<div class="row" id="row-tile-overlay" style="height: 400px">
 				<div class="overlay-header"><h1>SD Monitoring</h1></div>
 				<div class="info-box" id="info-pro">
@@ -55,7 +55,7 @@
 						</p>
 					</div>
 				</div>
-			<div class="row" id="row-tile-overlay-last" style="height: 3000px">
+			<div class="row" id="row-tile-overlay-last" style="height: 4000px">
 				<div class="info-box" id="info-pro">
 						<h3 id="SD_challenges">Challenges</h3>
 						<p style="text-indent: 1.5em;">
@@ -122,6 +122,99 @@
 						<p style="text-indent: 1.5em;">
 							Code
 						</p>
+						<!-- HTML generated using hilite.me -->
+					<div style="background: #111111; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;color:#000"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-style: italic; background-color: #0f140f"># CrossCheck added with work from Isaac Buckland and Mathew Potts</span>
+<span style="color: #fb660a; font-weight: bold">class</span> <span style="color: #ffffff">CrossCheck(object):</span>
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">__init__</span><span style="color: #ffffff">(self,accesslist_path):</span>
+        <span style="color: #ffffff">self.al_list</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">open(accesslist_path,</span><span style="color: #0086d2">&quot;r&quot;</span><span style="color: #ffffff">).read()</span>
+        <span style="color: #ffffff">self.date</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">os.popen(</span><span style="color: #0086d2">&quot;date +&#39;%b %-d&#39;&quot;</span><span style="color: #ffffff">).read()</span>
+        <span style="color: #ffffff">self.al_last_transfer_date</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">os.popen(</span><span style="color: #0086d2">&quot;ls -l %s | awk &#39;{print $6\&quot; \&quot;$7}&#39;&quot;</span> <span style="color: #ffffff">%</span> <span style="color: #ffffff">accesslist_path).read()</span>
+        <span style="color: #ffffff">self.list_types</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">{</span>
+	    <span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">:[],</span>
+	    <span style="color: #0086d2">&#39;ok&#39;</span><span style="color: #ffffff">:[],</span>
+	    <span style="color: #0086d2">&#39;no&#39;</span><span style="color: #ffffff">:[]</span>
+        <span style="color: #ffffff">}</span>
+        <span style="color: #ffffff">self.list_types_order=[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;ok&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;no&#39;</span><span style="color: #ffffff">]</span> 
+        <span style="color: #ffffff">self.list_types_cut</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">{</span>
+	    <span style="color: #0086d2">&#39;al_cut&#39;</span><span style="color: #ffffff">:[],</span>
+	    <span style="color: #0086d2">&#39;ok_cut&#39;</span><span style="color: #ffffff">:[],</span>
+	    <span style="color: #0086d2">&#39;no_cut&#39;</span><span style="color: #ffffff">:[]</span>
+        <span style="color: #ffffff">}</span>
+        <span style="color: #ffffff">self.error_keys=[</span><span style="color: #0086d2">&#39;comm&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;gps&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;batt&#39;</span><span style="color: #ffffff">]</span>
+        
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">################# ADD KEY WORDS IF NEEDED #################</span>
+        <span style="color: #ffffff">self.error_dict={</span>        
+	    <span style="color: #0086d2">&#39;comm&#39;</span><span style="color: #ffffff">:[</span><span style="color: #0086d2">&#39;antenna&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;LAN cable&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;signal&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;communicating&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;communication&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;communicate&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;offline&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;onsite reboot&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;reboot onsite&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;high comerr&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;trigger&#39;</span><span style="color: #ffffff">],</span>
+            <span style="color: #0086d2">&#39;gps&#39;</span><span style="color: #ffffff">:[</span><span style="color: #0086d2">&#39;gps&#39;</span><span style="color: #ffffff">],</span>
+            <span style="color: #0086d2">&#39;batt&#39;</span><span style="color: #ffffff">:[</span><span style="color: #0086d2">&#39;battery&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;solar&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;CC&#39;</span><span style="color: #ffffff">]</span>
+        <span style="color: #ffffff">}</span>
+        <span style="color: #008800; font-style: italic; background-color: #0f140f">###########################################################</span>
+        
+        <span style="color: #ffffff">self.reference_dict={</span>
+            <span style="color: #0086d2">&#39;comm&#39;</span><span style="color: #ffffff">:[],</span>
+            <span style="color: #0086d2">&#39;gps&#39;</span><span style="color: #ffffff">:[],</span>
+            <span style="color: #0086d2">&#39;batt&#39;</span><span style="color: #ffffff">:[]</span>
+        <span style="color: #ffffff">}</span>
+        <span style="color: #ffffff">self.comm_errtypes</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[</span><span style="color: #0086d2">&#39;comm&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;trig&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;ped&#39;</span><span style="color: #ffffff">]</span>
+        <span style="color: #ffffff">self.gps_errtypes</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[</span><span style="color: #0086d2">&#39;secnum&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;gpsnum&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;gpsmode&#39;</span><span style="color: #ffffff">]</span>
+        <span style="color: #ffffff">self.batt_errtypes</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[</span><span style="color: #0086d2">&#39;batthigh&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;battlow&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;solhigh&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;sollow&#39;</span><span style="color: #ffffff">]</span>
+
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">parse_al</span><span style="color: #ffffff">(self):</span>
+        <span style="color: #ffffff">al_list</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">self.al_list.split(</span><span style="color: #0086d2">&#39;\n---\n&#39;</span><span style="color: #ffffff">)</span>
+        <span style="color: #ffffff">idx=</span><span style="color: #0086f7; font-weight: bold">0</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">type</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.list_types_order:</span>
+	    <span style="color: #ffffff">self.list_types[type]</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">re.compile(</span><span style="color: #0086d2">&quot;\n+(?=[SK|BR|LR])&quot;</span><span style="color: #ffffff">).split(al_list[idx])</span> 
+	    <span style="color: #ffffff">idx+=</span><span style="color: #0086f7; font-weight: bold">1</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">type</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.list_types_order:</span>
+	    <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">entries</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">range(len(self.list_types[type])):</span>
+		<span style="color: #ffffff">self.list_types_cut[type</span> <span style="color: #ffffff">+</span> <span style="color: #0086d2">&#39;_cut&#39;</span><span style="color: #ffffff">].append(re.match(</span><span style="color: #0086d2">r&quot;^\w+\s\d+&quot;</span><span style="color: #ffffff">,self.list_types[type][entries]).group().replace(</span><span style="color: #0086d2">&#39; &#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;&#39;</span><span style="color: #ffffff">))</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">key</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.error_keys:</span>
+    	    <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">key_words</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.error_dict[key]:</span>
+    		<span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">entries</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">range(len(self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">])):</span>
+    		    <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">re.search(key_words,self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">][entries],re.IGNORECASE):</span>
+    			<span style="color: #ffffff">result</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">re.match(</span><span style="color: #0086d2">r&quot;(^\w+)\s\d+&quot;</span><span style="color: #ffffff">,self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">][entries]).group()</span>
+    			<span style="color: #ffffff">self.reference_dict[key].append(result.replace(</span><span style="color: #0086d2">&#39; &#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;&#39;</span><span style="color: #ffffff">))</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">key</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.error_keys:</span>
+            <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">x</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">vars(self)[key+</span><span style="color: #0086d2">&#39;_errtypes&#39;</span><span style="color: #ffffff">]:</span>
+                <span style="color: #ffffff">vars(self)[</span><span style="color: #0086d2">&#39;new_&#39;</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">x]</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[det</span> <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">globals()[x]</span> <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">not</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.reference_dict[key]</span> <span style="color: #ffffff">and</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">not</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.list_types_cut[</span><span style="color: #0086d2">&#39;no_cut&#39;</span><span style="color: #ffffff">]]</span>
+
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">display_CrossCheck</span><span style="color: #ffffff">(self):</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">x</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">errtypes:</span>
+	    <span style="color: #fb660a; font-weight: bold">print</span>
+    	    <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&#39;---------------------------------------------------------------------------&#39;</span>
+    	    <span style="color: #fb660a; font-weight: bold">print</span><span style="color: #ffffff">(highlight(</span><span style="color: #0086d2">&#39;new &#39;</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">x</span> <span style="color: #ffffff">+</span> <span style="color: #0086d2">&#39; error:&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;31;40m&#39;</span><span style="color: #ffffff">))</span>
+	    <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">vars(self)[</span><span style="color: #0086d2">&#39;new_&#39;</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">x]==[]:</span>
+		<span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #ffffff">highlight(</span><span style="color: #0086d2">&#39;No errors today&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;32;40m&#39;</span><span style="color: #ffffff">),</span>
+    	    <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">y</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">vars(self)[</span><span style="color: #0086d2">&#39;new_&#39;</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">x]:</span>
+		<span style="color: #fb660a; font-weight: bold">print</span>  <span style="color: #ffffff">highlight(y),</span>
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #ffffff">highlight(</span><span style="color: #0086d2">&#39;\n\nPress enter to continue.&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;31m&#39;</span><span style="color: #ffffff">)</span>
+        <span style="color: #ffffff">os.system(</span><span style="color: #0086d2">&#39;read gonext&#39;</span><span style="color: #ffffff">)</span>
+
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">may_have_recovered</span><span style="color: #ffffff">(self):</span>
+        <span style="color: #ffffff">all_errors</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">list(set(comm+secnum+trig+gpsnum+gpsmode+batthigh+battlow+solhigh+sollow+ped))</span>
+        <span style="color: #ffffff">no_error</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">[det</span> <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.reference_dict[</span><span style="color: #0086d2">&#39;comm&#39;</span><span style="color: #ffffff">]</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">self.reference_dict[</span><span style="color: #0086d2">&#39;gps&#39;</span><span style="color: #ffffff">]</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">self.reference_dict[</span><span style="color: #0086d2">&#39;batt&#39;</span><span style="color: #ffffff">]</span> <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">not</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">all_errors]</span>
+        <span style="color: #ffffff">no_error</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">list(dict.fromkeys(no_error))</span>    
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&#39;\n---------------------------------------------------------------------------&#39;</span>
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&quot;Detectors on access list with no error today, may have recovered. Please check plots:\n&quot;</span>
+        <span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">no_error:</span>
+	    <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">det</span> <span style="color: #ffffff">not</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">self.list_types_cut[</span><span style="color: #0086d2">&#39;no_cut&#39;</span><span style="color: #ffffff">]:</span>
+		<span style="color: #ffffff">sdnum</span> <span style="color: #ffffff">=</span> <span style="color: #ffffff">det[:</span><span style="color: #0086f7; font-weight: bold">2</span><span style="color: #ffffff">]</span> <span style="color: #ffffff">+</span> <span style="color: #0086d2">&#39; &#39;</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">det[</span><span style="color: #0086f7; font-weight: bold">2</span><span style="color: #ffffff">:]</span>
+		<span style="color: #fb660a; font-weight: bold">for</span> <span style="color: #ffffff">entries</span> <span style="color: #ffffff">in</span> <span style="color: #ffffff">range(len(self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">])):</span>
+		    <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">re.search(</span><span style="color: #0086d2">&quot;%s(?!.*replace)&quot;</span><span style="color: #ffffff">%sdnum,self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">][entries],re.IGNORECASE):</span> <span style="color: #008800; font-style: italic; background-color: #0f140f">#add another condition for replace</span>
+        		<span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #ffffff">highlight(self.list_types[</span><span style="color: #0086d2">&#39;al&#39;</span><span style="color: #ffffff">][entries],</span><span style="color: #0086d2">&#39;01;32;40m&#39;</span><span style="color: #ffffff">)</span> <span style="color: #ffffff">+</span> <span style="color: #ffffff">highlight(</span><span style="color: #0086d2">&#39;\n ^ http://www.icrr.u-tokyo.ac.jp/~tamember/towermonitor/DET&#39;</span><span style="color: #ffffff">+</span> <span style="color: #ffffff">sdnum[</span><span style="color: #0086f7; font-weight: bold">3</span><span style="color: #ffffff">:]</span> <span style="color: #ffffff">+</span><span style="color: #0086d2">&#39;/thissd.jpg \n&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;34m&#39;</span><span style="color: #ffffff">)</span>
+			<span style="color: #ffffff">os.system(</span><span style="color: #0086d2">&#39;read gonext&#39;</span><span style="color: #ffffff">)</span>
+
+    <span style="color: #fb660a; font-weight: bold">def</span> <span style="color: #ff0086; font-weight: bold">check_accesslist_file</span><span style="color: #ffffff">(self):</span>
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&#39;\n---------------------------------------------------------------------------\n&#39;</span>
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&#39;ACCESS LIST TRANSFER DATE: %s&#39;</span> <span style="color: #ffffff">%</span> <span style="color: #ffffff">self.al_last_transfer_date</span>
+        <span style="color: #fb660a; font-weight: bold">if</span> <span style="color: #ffffff">self.al_last_transfer_date</span> <span style="color: #ffffff">!=</span> <span style="color: #ffffff">self.date:</span>
+            <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #ffffff">highlight(</span><span style="color: #0086d2">&#39;ACCESS LIST IS OUT OF DATE!! CROSS CHECK MAY NOT BE ACCURATE!!\n&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;31m&#39;</span><span style="color: #ffffff">)</span>
+            <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #ffffff">highlight(</span><span style="color: #0086d2">&#39;\n\nPress enter to continue.&#39;</span><span style="color: #ffffff">,</span><span style="color: #0086d2">&#39;01;31m&#39;</span><span style="color: #ffffff">)</span>
+            <span style="color: #ffffff">os.system(</span><span style="color: #0086d2">&#39;read gonext&#39;</span><span style="color: #ffffff">)</span>
+        <span style="color: #fb660a; font-weight: bold">print</span> <span style="color: #0086d2">&#39;---------------------------------------------------------------------------&#39;</span>
+</pre>
+						</div>
+
 						<h3 id="SD_maint">Field Maintinance</h3>
 						<p style="text-indent: 1.5em;">
 							The other half of SD monitoring is SD maintinace. This involves driving off road in the deserts West of Delta, Utah to access SDs.
