@@ -2,7 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="../assets/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700italic,400,300,700" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
 	<link rel="icon" href="/assets/images/favicon.png" type="image/png">
 	<meta charset="utf-8">
 	<title>sFLASH</title>
@@ -25,25 +25,59 @@
 		</div>
 	</header>
 	<main>
-		<div class="container" style="height: 500px">
-			<div class="row" id="row-tile-overlay-last" style="height: 500px">
+		<div class="container" style="height: 4900px">
+			<div class="row" id="row-tile-overlay" style="height: 375px">
 				<div class="overlay-header"><h1>sFLASH measurement of Flourescence Yield at SLAC</h1></div>
 				<div class="info-box" id="info-re">
 					<br>
 					<div class="portrait" id="toc">
 						<p class="toc_title">Table of Contents:</p>
 						<ol>
-							<li><a href="#UHECR_intro">Introduction</a></li>
-							<li><a href="#UHECR_abstract">What is the Flourescense Yield?</li>
-							<li><a>Pre-SLAC</a></li>
+							<li><a href="#SF_intro">Introduction</a></li>
+							<li><a href="#SF_AFY">What is the Flourescense Yield?</li>
+							<li><a href="SF_pre">Pre-SLAC</a></li>
 							<ol>
-								<li class="inner-ol"><a>Calibartion of PMTs</a></li>
+								<li class="inner-ol"><a href="SF_calib">Calibartion of PMTs</a></li>
 							</ol>
 							
-							<li><a href="#UHECR_MC">SLAC 2016 experiment</a>
-							<li><a href="#UHECR_thesis_man">SLAC 2018 experiment</a></li>
+							<li><a href="#SF_2016">SLAC 2016 experiment</a></li>
+							<li><a href="#SF_2018">SLAC 2018 experiment</a></li>
 						</ol>
 					</div>
+				</div>
+				<div class="info-box" id="info-Espec" style="right:100px">
+						<h3 id="SD_intro">Introduction</h3>
+						<p>
+							As an undergraduate working with The Telescope Array Project (TA), I was given the opportunity to work on the sFLASH experiment at SLAC National Accelerator Laboratory in Menlo Park, USA. The primary goals of the Super Fluorescence AirSHower experiment, sFLASH, are to reduce the systematic uncertainty on the air fluorescence measurement and to study the air fluorescence yield dependence on the shower development. To achieve these goals, we conducted two experiments. During the 2016 experiment we measured the absolute air fluorescence yield. We used this result to normalize the results of the second experiment, conducted in 2018, and we aimed to study the air fluorescence yield dependence on the shower development stage.
+						</p>
+				</div>
+			</div>
+			<div class="row" id="row-tile-overlay-last" style="height: 4400px">
+				<div class="info-box" id="info-pro">
+						<p style="text-indent: 1.5em;">
+							In our group, I lead the quality check of the data, ensuring that the beam energy was stable throughout the run. I worked with colleagues on the photo-multiplier calibration both before the experiments and in situ. There has been a delay in sFLASH’s analyses due to the COVID-19 outbreak and anomalies within the second 2018 experiment, but we are actively working through it and plan to publish our findings soon.
+						</p>
+						<h3 id="SF_AFY">What is Flourescense Yield?</h3>
+						<p style="text-indent: 1.5em;">
+							The main challenge that we faced creating our program that was the aged infrastructure used for SD monitoring. The SD monitoring server uses an older version of Vine Linux that didn't support many of the things we wanted to do with Python. These problems could have been overcome by manually building the prerequisites Python version and libraries on the server, but due to a lack of administrative permissions, it was easier to create a two-step process of achieving our goal.
+						</p>
+						<h3 id="SF_pre">Pre-SLAC</h3>
+						<p style="text-indent: 1.5em;">
+							
+						</p>
+						<h4 id="SF_calib">Calibration of PMTs</h4>
+						<p style="text-indent: 1.5em;">
+							Uses Python 3 Requests and BeautifulSoup libraries to parse the html code of the wiki site that houses the access list into a plain text file. Below is the class that I created to grab the access list: 
+						</p>
+
+						<h3 id="SF_2016">SLAC 2016 experiment</h3>
+						<p style="text-indent: 1.5em;">
+							The other half of SD monitoring is SD maintenance. This involves driving off the road in the deserts west of Delta, Utah to access SDs. The actual work done on the SDs varies widely. I have replaced batteries, GPS/radio antennas and occasionally removed the mainboards entirely to modify them. Part of the doing SD maintenance involves submitting paperwork to the Bureau of Land Management (BLM); I have created a bash script that makes this process easier. Below are some images of some an SD that I accessed.
+						</p>
+						<h3 id="SF_2018">SLAC 2018 experiment</h3>
+						<p style="text-indent: 1.5em;">
+							The other half of SD monitoring is SD maintenance. This involves driving off the road in the deserts west of Delta, Utah to access SDs. The actual work done on the SDs varies widely. I have replaced batteries, GPS/radio antennas and occasionally removed the mainboards entirely to modify them. Part of the doing SD maintenance involves submitting paperwork to the Bureau of Land Management (BLM); I have created a bash script that makes this process easier. Below are some images of some an SD that I accessed.
+						</p>
 				</div>
 			</div>
 		</div>
