@@ -34,10 +34,10 @@
 						<p class="toc_title">Table of Contents:</p>
 						<ol>
 							<li><a href="#SF_intro">Introduction</a></li>
-							<li><a href="#SF_AFY">What is the Flourescense Yield?</li>
-							<li><a href="SF_pre">Pre-SLAC</a></li>
+							<li><a href="#SF_AFY">What is the Air Flourescense Yield?</li>
+							<li><a href="#SF_pre">Pre-SLAC</a></li>
 							<ol>
-								<li class="inner-ol"><a href="SF_calib">Calibartion of PMTs</a></li>
+								<li class="inner-ol"><a href="#SF_calib">Calibartion of PMTs</a></li>
 							</ol>
 							
 							<li><a href="#SF_2016">SLAC 2016 experiment</a></li>
@@ -57,26 +57,32 @@
 						<p style="text-indent: 1.5em;">
 							In our group, I lead the quality check of the data, ensuring that the beam energy was stable throughout the run. I worked with colleagues on the photo-multiplier calibration both before the experiments and in situ. There has been a delay in sFLASH’s analyses due to the COVID-19 outbreak and anomalies within the second 2018 experiment, but we are actively working through it and plan to publish our findings soon.
 						</p>
-						<h3 id="SF_AFY">What is Flourescense Yield?</h3>
+						<h3 id="SF_AFY">What is Air Flourescense Yield?</h3>
 						<p style="text-indent: 1.5em;">
-							The main challenge that we faced creating our program that was the aged infrastructure used for SD monitoring. The SD monitoring server uses an older version of Vine Linux that didn't support many of the things we wanted to do with Python. These problems could have been overcome by manually building the prerequisites Python version and libraries on the server, but due to a lack of administrative permissions, it was easier to create a two-step process of achieving our goal.
+							The air flourescense technique for detecting cosmic rays has been around since the mid-60s; it involves observing the cascade of secondary particles that is incidiated by a cosmic ray. The energy of the primary cosmic ray is related to the total amount of the fluorescence light emitted by the cascade, called an extensive air shower (EAS). An important parameter to measuring the energy is the Air Flourescense Yield (AFY). The AFY is a conversion factor between the light profile and physical interpretation of the showers and expresses the number of photons produced by a charged particle per unit interaction length.
 						</p>
 						<h3 id="SF_pre">Pre-SLAC</h3>
 						<p style="text-indent: 1.5em;">
-							
+							Before the first 2016 experiment at Stanford Linear Accelerator Center(SLAC), I was reponsible for the calibration of the Photonis PMTs and the purchase of a blackout blind that would be used for background light control. 
+						</p>
+						<p style="text-indent: 1.5em;">
+							The experiment planned on using two different types of PMTs: Hamamatsu and Photonis. These tubes were used in “CRAYS” and “HiRes” experiments, repectively . The PMTs were calibrated independently at University of Utah ("Photonis") and at ICRR ("CRAYS") in Japan.  The calibration was performed by calibrated UV LEDs during the data taking.  We calibrated PMTs by two different types of calibration systems: CRAYS and Roving Xenon Flasher, RXF, which is the standard candle for the TA experiment. The CRAYS consists of a 337.1 nm pulse laser and a N2 filled scattering chamber. The PMT is attached to the chamber normal to laser beam and illuminated by 90<sup>◦</sup> Rayleigh scattered  photons. The signal is read out by a WaveJet 354A oscilloscope.  The calibration uncertainty by CRAYS was estimated 6.5%.  The RXF consists of a 355 nm Xenon bulb producing μs pulse and a diffuser. It is calibrated by a NIST certified Hybrid Photodiode system, HPD. The PMT is calibrated by the RXF at adistance of 2 m in dark room with 6% error. I was responsible for calibrating the Photonis tubes before the experiment. After AFY measurement, we cross-checked both types of PMTs calibration constants using CRAYS which agree within the systematic error.  For the on-site PMT monitoring and calibration, we use a temperature stabilized UV LED light source and small light source YAP (YAlO<sub>3</sub>).  The UV LED is portable calibration  light  emitting  369  nm wavelength photons set 4m away from the PMTs and 1.15m from the ground to avoid obscuration of air fluorescence photons.  The YAP consists of an α source and a scintillator to emit photons built into a 4mm diameter alumina can.  It is set at the UV filter at PMT window and injected photon directly into the photocathode.  The YAP confirmed the stability of the calibration constants during the experiment. 
+						</p>
+						<p style="text-indent: 1.5em;">
+							The blackout curtain was used to measure the  background and was made from aluminized Mylar. The background was measured by "blind” PMTs (PMTs wrapped in blackpaper) and by “signal” PMTs by periodically closing a remotely controlled shutter.
 						</p>
 						<h4 id="SF_calib">Calibration of PMTs</h4>
 						<p style="text-indent: 1.5em;">
-							Uses Python 3 Requests and BeautifulSoup libraries to parse the html code of the wiki site that houses the access list into a plain text file. Below is the class that I created to grab the access list: 
+							
 						</p>
 
 						<h3 id="SF_2016">SLAC 2016 experiment</h3>
 						<p style="text-indent: 1.5em;">
-							The other half of SD monitoring is SD maintenance. This involves driving off the road in the deserts west of Delta, Utah to access SDs. The actual work done on the SDs varies widely. I have replaced batteries, GPS/radio antennas and occasionally removed the mainboards entirely to modify them. Part of the doing SD maintenance involves submitting paperwork to the Bureau of Land Management (BLM); I have created a bash script that makes this process easier. Below are some images of some an SD that I accessed.
+							
 						</p>
 						<h3 id="SF_2018">SLAC 2018 experiment</h3>
 						<p style="text-indent: 1.5em;">
-							The other half of SD monitoring is SD maintenance. This involves driving off the road in the deserts west of Delta, Utah to access SDs. The actual work done on the SDs varies widely. I have replaced batteries, GPS/radio antennas and occasionally removed the mainboards entirely to modify them. Part of the doing SD maintenance involves submitting paperwork to the Bureau of Land Management (BLM); I have created a bash script that makes this process easier. Below are some images of some an SD that I accessed.
+							
 						</p>
 				</div>
 			</div>
