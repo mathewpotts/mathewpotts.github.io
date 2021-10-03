@@ -1,13 +1,14 @@
 <!doctype html>
 <html>
 <head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="../assets/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700" rel="stylesheet" type="text/css">
 	<link rel="icon" href="/assets/images/favicon.png" type="image/png">
 	<meta charset="utf-8">
 	<title>sFLASH</title>
 </head>
-
 <body>
 	<header>
 		<div class="container">
@@ -26,15 +27,15 @@
 	</header>
 	<main>
 		<div class="container" style="height: 4900px">
-			<div class="row" id="row-tile-overlay" style="height: 375px">
+			<div class="row" id="row-tile-overlay" style="height: 385px">
 				<div class="overlay-header"><h1>sFLASH measurement of Flourescence Yield at SLAC</h1></div>
 				<div class="info-box" id="info-re">
 					<br>
 					<div class="portrait" id="toc">
 						<p class="toc_title">Table of Contents:</p>
-						<ol>
+						<ol style="width:230px">
 							<li><a href="#SF_intro">Introduction</a></li>
-							<li><a href="#SF_AFY">What is the Air Flourescense Yield?</li>
+							<li><a href="#SF_AFY">What is the Air Flourescense Yield?</a></li>
 							<li><a href="#SF_pre">Pre-SLAC</a></li>
 							<ol>
 								<li class="inner-ol"><a href="#SF_calib">Calibartion of PMTs</a></li>
@@ -63,29 +64,208 @@
 						</p>
 						<h3 id="SF_pre">Pre-SLAC</h3>
 						<p style="text-indent: 1.5em;">
-							Before the first 2016 experiment at Stanford Linear Accelerator Center(SLAC), I was reponsible for the calibration of the Photonis PMTs and the purchase of a blackout blind that would be used for background light control. 
-						</p>
-						<p style="text-indent: 1.5em;">
-							The experiment planned on using two different types of PMTs: Hamamatsu and Photonis. These tubes were used in “CRAYS” and “HiRes” experiments, repectively . The PMTs were calibrated independently at University of Utah ("Photonis") and at ICRR ("CRAYS") in Japan.  The calibration was performed by calibrated UV LEDs during the data taking.  We calibrated PMTs by two different types of calibration systems: CRAYS and Roving Xenon Flasher, RXF, which is the standard candle for the TA experiment. The CRAYS consists of a 337.1 nm pulse laser and a N2 filled scattering chamber. The PMT is attached to the chamber normal to laser beam and illuminated by 90<sup>◦</sup> Rayleigh scattered  photons. The signal is read out by a WaveJet 354A oscilloscope.  The calibration uncertainty by CRAYS was estimated 6.5%.  The RXF consists of a 355 nm Xenon bulb producing μs pulse and a diffuser. It is calibrated by a NIST certified Hybrid Photodiode system, HPD. The PMT is calibrated by the RXF at adistance of 2 m in dark room with 6% error. I was responsible for calibrating the Photonis tubes before the experiment. After AFY measurement, we cross-checked both types of PMTs calibration constants using CRAYS which agree within the systematic error.  For the on-site PMT monitoring and calibration, we use a temperature stabilized UV LED light source and small light source YAP (YAlO<sub>3</sub>).  The UV LED is portable calibration  light  emitting  369  nm wavelength photons set 4m away from the PMTs and 1.15m from the ground to avoid obscuration of air fluorescence photons.  The YAP consists of an α source and a scintillator to emit photons built into a 4mm diameter alumina can.  It is set at the UV filter at PMT window and injected photon directly into the photocathode.  The YAP confirmed the stability of the calibration constants during the experiment. 
-						</p>
-						<p style="text-indent: 1.5em;">
-							The blackout curtain was used to measure the  background and was made from aluminized Mylar. The background was measured by "blind” PMTs (PMTs wrapped in blackpaper) and by “signal” PMTs by periodically closing a remotely controlled shutter.
+							Before the first 2016 experiment at Stanford Linear Accelerator Center(SLAC), I was reponsible for the calibration of the Photonis PMTs and the purchase of a blackout blind that would be used for background light control. The experiment planned on using two different types of PMTs: Hamamatsu and Photonis. These tubes were used in “CRAYS” and “HiRes” experiments, repectively . The PMTs were calibrated independently at University of Utah ("Photonis") and at ICRR ("CRAYS") in Japan. The blackout curtain was used to measure the  background and was made from aluminized Mylar. The background was measured by "blind” PMTs (PMTs wrapped in blackpaper) and by “signal” PMTs by periodically closing a remotely controlled shutter.
 						</p>
 						<h4 id="SF_calib">Calibration of PMTs</h4>
 						<p style="text-indent: 1.5em;">
-							
+							The calibration was performed by calibrated UV LEDs during the data taking.  We calibrated PMTs by two different types of calibration systems: CRAYS and Roving Xenon Flasher, RXF, which is the standard candle for the TA experiment. The CRAYS consists of a 337.1 nm pulse laser and a N2 filled scattering chamber. The PMT is attached to the chamber normal to laser beam and illuminated by 90<sup>◦</sup> Rayleigh scattered  photons. The signal is read out by a WaveJet 354A oscilloscope.  The calibration uncertainty by CRAYS was estimated 6.5%.  The RXF consists of a 355 nm Xenon bulb producing μs pulse and a diffuser. It is calibrated by a NIST certified Hybrid Photodiode system, HPD. The PMT is calibrated by the RXF at adistance of 2 m in dark room with 6% error. I was responsible for calibrating the Photonis tubes before the experiment. After AFY measurement, we cross-checked both types of PMTs calibration constants using CRAYS which agree within the systematic error.  For the on-site PMT monitoring and calibration, we use a temperature stabilized UV LED light source and small light source YAP (YAlO<sub>3</sub>).  The UV LED is portable calibration  light  emitting  369  nm wavelength photons set 4m away from the PMTs and 1.15m from the ground to avoid obscuration of air fluorescence photons.  The YAP consists of an α source and a scintillator to emit photons built into a 4mm diameter alumina can.  It is set at the UV filter at PMT window and injected photon directly into the photocathode.  The YAP confirmed the stability of the calibration constants during the experiment. 
 						</p>
-
+						<center>
+								<img src="../assets/images/SLAC/20160725_161552.jpg" style="width:450px" alt="PMT Calibration" />
+								<div style="width:450px">The calibration setup in B39 at the University of Utah. To the right there is the UV lED which is place 2 meters away from the PMTs, on the left.</div>
+						</center>
 						<h3 id="SF_2016">SLAC 2016 experiment</h3>
+						<center>
+							<img src="../assets/images/sflash_diagram.png" style="width: 450px " alt="sFLASH Diagram of Experimental Setup" />
+							<img src="../assets/images/sflash_pmts.png" style="padding-left:15px;height:336px" alt="sFLASH PMTs Set Up" />
+							<div style="width:750px">(Left) Cartoon of the sFLASH experimental setup. (Right) The 6 PMTs used in the experiment. The left three are the Hamamatsu PMTs, and the right three are the Photonis tubes behind lead bricks.</div>
+						</center>
 						<p style="text-indent: 1.5em;">
-							
+							This is a general discription of the 2016 experiment.
 						</p>
+						<center>
+						<div id="myCarousel" class="carousel slide" data-ride="carousel" style="width:500px;height: 375px;">
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators" style="bottom: -2em;">
+							<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel" data-slide-to="1"></li>
+							<li data-target="#myCarousel" data-slide-to="2"></li>
+							<li data-target="#myCarousel" data-slide-to="3"></li>
+							<li data-target="#myCarousel" data-slide-to="4"></li>
+							<li data-target="#myCarousel" data-slide-to="5"></li>
+							<li data-target="#myCarousel" data-slide-to="6"></li>
+							<li data-target="#myCarousel" data-slide-to="7"></li>
+							<li data-target="#myCarousel" data-slide-to="8"></li>
+							<li data-target="#myCarousel" data-slide-to="9"></li>
+							<li data-target="#myCarousel" data-slide-to="10"></li>
+						  </ol>
+						<!-- Wrapper for slides -->
+					  	<div class="carousel-inner">
+							<div class="item active">
+						  		<img src="../assets/images/SLAC/run1/20160727_165955.jpg"  style="height:300px" alt="Chania">
+						  		<div class="carousel-caption">
+									<p>
+										The beam dump in End Station A. BK is seen to the right.
+									</p>
+						  		</div>
+							</div>
+							<div class="item">
+						  		<img src="../assets/images/SLAC/run1/20160727_193201.jpg" style="height:300px" alt="Chicago">
+						  		<div class="carousel-caption">
+								<p>
+									My radiation badge after passing the safety course at SLAC.
+								</p>
+						  		</div>
+							</div>
+							<div class="item">
+						  		<img src="../assets/images/SLAC/run1/20160728_085702.jpg" style="height:300px" alt="New York" />
+						  		<div class="carousel-caption">
+									<p style="padding:0em 0em">
+										Looking up the beamline. The aluminin covered bricks in the foreground are Alumina that are used to inciate the air shower.
+									</p>
+						  		</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160728_200016.jpg"  style="height:300px" alt="New York" />
+							  	<div class="carousel-caption">
+									<p>
+										The stairs outside End Station A.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160730_104738.jpg" style="height:300px"  alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p>
+										A long hallway filled with synchrotrons.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160730_110651.jpg" style="height:300px" alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p style="padding:0em 0em">
+										sFLASH collaboration having a meeting in the End Station A control room.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160730_140059.jpg" style="height:300px" alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p>
+										Watching the data roll in.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160730_193343.jpg" style="height:300px" alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p>
+										Charlie Jui goofing as the data was rolling in. 
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160731_223622.jpg" style="height:300px" alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p>
+										Data aquisition program, programmed in LabVIEW.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run1/20160801_093538.jpg" style="height:300px" alt="SLAC" />
+							  	<div class="carousel-caption">
+									<p style="padding:0em 0em">
+										Inside the photon guide tunnel. The UV LED is seen in foreground for onsite calibration.
+									</p>
+							  	</div>
+							</div>
+					  </div>
+					  <!-- Left and right controls -->
+					  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+						<span class="sr-only">Next</span>
+					  </a>
+				</div></center><br>
 						<h3 id="SF_2018">SLAC 2018 experiment</h3>
 						<p style="text-indent: 1.5em;">
-							
+							This is a general discription of 2018 experiments.
 						</p>
-				</div>
+						<center>
+						<div id="myCarousel2" class="carousel slide" data-ride="carousel" style="width:500px;height: 375px;">
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators" style="bottom: -2em;">
+							<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+							<li data-target="#myCarousel2" data-slide-to="1"></li>
+							<li data-target="#myCarousel2" data-slide-to="2"></li>
+							<li data-target="#myCarousel2" data-slide-to="3"></li>
+							<li data-target="#myCarousel2" data-slide-to="4"></li>
+							<li data-target="#myCarousel2" data-slide-to="5"></li>
+						  </ol>
+						<!-- Wrapper for slides -->
+					  	<div class="carousel-inner">
+							<div class="item active">
+						  		<img src="../assets/images/SLAC/20160730_000754.jpg" alt="Chania">
+						  		<div class="carousel-caption">
+									<p style="padding:0em 0em">
+										Watching the data come in the End Station A control room as part of the first sFLASH experiment in 2018
+									</p>
+						  		</div>
+							</div>
+							<div class="item">
+						  		<img src="../assets/images/SLAC/run2/20160921_115026.jpg" alt="Chicago">
+						  		<div class="carousel-caption">
+								<p style="padding:0em 0em">
+									Setting up the window frame that will have the shutter attached too it. 
+								</p>
+						  		</div>
+							</div>
+							<div class="item">
+						  		<img src="../assets/images/SLAC/run2/20160921_121602.jpg" alt="New York" style="height:281px;">
+						  		<div class="carousel-caption">
+									<p>
+										Standing in front of Middle Drum flourecence detecting mirrors at the Middle Drum Observatory.
+									</p>
+						  		</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run2/20160921_134529.jpg" alt="New York">
+							  	<div class="carousel-caption">
+									<p>
+										Working with Sabastian Atwood in the End Station A control room.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run2/20160922_142311.jpg" alt="SLAC" style="height:281px;">
+							  	<div class="carousel-caption">
+									<p>
+										Mathew Potts, Sabastian Atwood, Pierre Solkolsky working in End Station A setting up the experiment.
+									</p>
+							  	</div>
+							</div>
+							<div class="item">
+								<img src="../assets/images/SLAC/run2/20160923_155154.jpg" alt="SLAC" style="height:281px;">
+							  	<div class="carousel-caption">
+									<p>
+										Mathew Potts, Sabastian Atwood, Pierre Solkolsky working in End Station A setting up the experiment.
+									</p>
+							  	</div>
+							</div>
+					  </div>
+					  <!-- Left and right controls -->
+					  <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+						<span class="sr-only">Previous</span>
+					  </a>
+					  <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+						<span class="sr-only">Next</span>
+					  </a>
+				</div></center>
 			</div>
+		</div>
 		</div>
 	</main>
 	<footer>
