@@ -407,11 +407,6 @@ main .container
 	color: #fff;/*#D4D4D4*/
 }
 
-#info-re a:hover
-{
-	color: #CC99CC;
-}
-
 #info-re .re
 {
 	padding-left: 225px;
