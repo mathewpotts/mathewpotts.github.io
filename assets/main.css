@@ -13,6 +13,7 @@ body
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
+	min-width: 1200px;
 	background: #202020 url(images/background-stars-25.jpg) repeat;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 300;
@@ -177,7 +178,7 @@ header
 {
 	background: #FFF;
 	position: relative;
-
+	width: 100%;
 }
 
 header .container
@@ -443,7 +444,7 @@ footer
 {
 	background: #FFF;
 	position: relative;
-
+	width: 100%;
 }
 
 footer .container
