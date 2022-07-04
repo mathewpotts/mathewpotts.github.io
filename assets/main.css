@@ -92,7 +92,7 @@ ol ol > li:before {
 .container {
     margin-left: auto;
     margin-right: auto;
-	height: inherit;
+	height: auto;
     width: 1200px;
 }
 
