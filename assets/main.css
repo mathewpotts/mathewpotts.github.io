@@ -14,7 +14,10 @@ body
 	flex-direction: column;
 	min-height: 100%;
 	min-width: 1200px;
-	background: #202020 url(images/background-stars-25.jpg) repeat;
+	background-image: url(images/background-stars-25.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-attachment: fixed;
 	font-family: 'Roboto Condensed', sans-serif;
 	font-weight: 300;
 	font-size: 11pt;
@@ -77,7 +80,7 @@ ol > li {
 }
 
 ol ol > li {
-    display: block; 
+    display: block;
 }
 
 ol ol > li:before {
@@ -258,7 +261,7 @@ nav li.active a
 /*********************************************************************************/
 /* Main                                                                          */
 /*********************************************************************************/
-	
+
 main
 {
 	position: relative;
@@ -276,7 +279,7 @@ main .container
 /*********************************************************************************/
 /* Portrait                                                                      */
 /*********************************************************************************/
-	
+
 .portrait
 {
 	position: absolute;
@@ -337,7 +340,7 @@ main .container
 	font-weight: bold;
 }*/
 
-.info-box p 
+.info-box p
 {
 	text-indent: 1.5em;
 }
@@ -359,7 +362,7 @@ main .container
 
 .info-box#info-Espec > p
 {
-	padding: 0; 
+	padding: 0;
 	text-indent: 1.5em;
 }
 
@@ -370,7 +373,7 @@ main .container
 
 #info-pro .noindent
 {
-	padding:0; 
+	padding:0;
 	margin:0;
 }
 
@@ -391,7 +394,7 @@ main .container
 	margin-left:auto;
 	margin-right:auto;
 	width: 950px;
-	color: #FFF; 
+	color: #FFF;
 }
 
 #info-re h3
@@ -439,7 +442,7 @@ main .container
 /*********************************************************************************/
 /* Footer                                                                        */
 /*********************************************************************************/
-	
+
 footer
 {
 	background: #FFF;
@@ -472,7 +475,7 @@ footer .container
 
 #toc .toc_title
 {
-	padding-left: 1.5em; 
+	padding-left: 1.5em;
 	margin-bottom: 0;
 }
 
