@@ -83,7 +83,7 @@ iframe{
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	aspect-ratio: 4 / 3;
+	height: 220px;
 	background: #111;
 	overflow: hidden;
 }
@@ -96,6 +96,37 @@ iframe{
 
 .gallery-item figcaption {
 	padding-top: .5em;
+}
+
+.homepage-row .home-carousel {
+	width: 420px;
+	height: 320px;
+}
+
+.homepage-row .home-carousel .carousel-inner > .item {
+	height: 280px;
+}
+
+.homepage-row .home-carousel .carousel-inner > .item > a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 240px;
+}
+
+.homepage-row .home-carousel .carousel-inner > .item > a > img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	max-height: 240px;
+	margin: auto;
+	object-fit: contain;
+}
+
+.homepage-row .home-carousel .carousel-indicators {
+	bottom: -1em;
+	margin-bottom: 0;
 }
 
 @media (max-width: 1200px) {
@@ -132,7 +163,7 @@ ol ol > li:before {
 .container {
     margin-left: auto;
     margin-right: auto;
-	height: inherit;
+	height: auto;
     width: 1200px;
 }
 
@@ -143,11 +174,11 @@ ol ol > li:before {
 .row
 {
 	background: inherit;
-	width: inherit;
-	margin: inherit;
+	width: 100%;
+	margin: 0;
 	display: block;
 	position: relative;
-	height: 200px;
+	height: auto;
 }
 
 .row-last
@@ -159,22 +190,18 @@ ol ol > li:before {
 	margin: inherit;
 	display: block;
 	position: relative;
-	height: 200px;
+	height: auto;
 }
 
 .row-last::after {
   content: "";
   clear: both;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+	display: block; }
 
 .row::after {
   content: "";
   clear: both;
-  display: flex;
-  align-items: center;
-  justify-content: center; }
+	display: block; }
 
 
 
@@ -208,6 +235,11 @@ ol ol > li:before {
 	border-color: #FFFFFF;
 	border-top-style: hidden;
 	background-color:rgba(0,0,0,0.85);
+}
+
+#row-tile-overlay + #row-tile-overlay-last {
+	margin-top: 0;
+	border-top-style: hidden;
 }
 
 /*********************************************************************************/
@@ -311,8 +343,75 @@ main
 main .container
 {
 	position: relative;
-	height: 500px;
+	height: auto;
 	padding: 5em 0em;
+}
+
+#row-tile-overlay > .info-box,
+#row-tile-overlay-last > .info-box {
+	position: relative;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	width: auto;
+	max-width: 950px;
+	margin: 0 auto;
+}
+
+.homepage-row {
+	padding-bottom: 3em;
+}
+
+.homepage-row > #portrait-main {
+	position: relative;
+	top: auto;
+	left: auto;
+	float: left;
+	width: 500px;
+	margin: 3em 3em 2em 2em;
+	padding: 2em 0 0 3em;
+	box-sizing: border-box;
+}
+
+.homepage-row > .info-box {
+	position: relative;
+	width: auto;
+	max-width: none;
+	margin: 0;
+	padding: 3em 2em;
+}
+
+.homepage-row::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.education-row {
+	display: grid;
+	grid-template-columns: 250px minmax(0, 1fr);
+	column-gap: 3em;
+	padding-bottom: 3em;
+}
+
+.education-row > .overlay-header {
+	grid-column: 1 / -1;
+}
+
+.education-row > #portrait-ed {
+	position: relative;
+	top: auto;
+	left: auto;
+	padding: 3em 0 0 3em;
+}
+
+.education-row > #info-ed-uofu {
+	grid-column: 2;
+	grid-row: 2;
+	align-self: start;
+	right: auto;
+	margin-top: 3em;
 }
 
 /*********************************************************************************/
@@ -476,6 +575,29 @@ main .container
 {
 	padding-left: 0.5em;
 	color: #fff;/*#D4D4D4;*/
+}
+
+.research-logo {
+	left: 2em;
+}
+
+#row-tile-overlay > .info-box > #toc,
+#row-tile-overlay-last > .info-box > #toc,
+#row-tile-overlay > .info-box > .info-box,
+#row-tile-overlay-last > .info-box > .info-box {
+	position: relative;
+	top: auto;
+	right: auto;
+	bottom: auto;
+	left: auto;
+	width: auto;
+	max-width: none;
+	margin: 0;
+}
+
+#row-tile-overlay > .info-box > #toc,
+#row-tile-overlay-last > .info-box > #toc {
+	margin-bottom: 2em;
 }
 
 /*********************************************************************************/

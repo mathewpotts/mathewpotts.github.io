@@ -36,7 +36,50 @@ Add another dictionary to `PROJECTS` in `build.py`:
 
 The project card markup comes from `templates/project.html`.
 
-## Add a photo
+
+## Edit the research page
+
+Add a research position to `RESEARCH_EXPERIENCE` in `build.py`:
+
+```python
+{
+	"title": "Research position",
+	"dates": "2026 - Present",
+	"logo": "../assets/images/lab-logo.png",
+	"alt": "Research laboratory logo",
+	"details": "Laboratory name<br>Location<br>Manager: Name",
+	"bullets": ["First responsibility.", "Second responsibility."],
+},
+```
+
+Add publication text to `PUBLICATIONS` and talk text to `TALKS`. Both lists
+support HTML links such as `<a href="...">paper title</a>` for documents and
+presentations. The entry markup is defined in
+`templates/research-experience.html` and `templates/research-list-item.html`.
+## Edit the introduction carousel
+
+The introduction page has its own carousel. Add, remove, or reorder entries in
+`HOME_PHOTOS` in `build.py`:
+
+```python
+{
+	"src": "assets/images/example.jpg",
+	"alt": "A useful description of the image",
+	"caption": "The caption shown below the image.",
+},
+```
+
+The carousel markup comes from `templates/home-gallery.html` and
+`templates/home-gallery-item.html`. The first item in `HOME_PHOTOS` is shown
+first automatically.
+
+## Edit About Me
+
+Edit the paragraphs in `ABOUT_ME_PARAGRAPHS` in `build.py`. Each list item
+becomes one paragraph on the introduction page. The surrounding markup comes
+from `templates/about-me.html`.
+
+## Add a photo to the Photos tab
 
 Add a dictionary to `PHOTOS` in `build.py` with the image path, accessible alt
-text, and caption. The photo page markup comes from `templates/gallery.html`.
+text, and caption. The full gallery markup comes from `templates/gallery.html`.
