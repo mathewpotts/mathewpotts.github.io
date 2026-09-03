@@ -67,6 +67,33 @@ iframe{
 	height:400px;
 }
 
+.photo-gallery {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2em;
+}
+
+.gallery-item {
+	margin: 0;
+	color: #fff;
+}
+
+.gallery-item img {
+	width: 100%;
+	height: 220px;
+	object-fit: cover;
+}
+
+.gallery-item figcaption {
+	padding-top: .5em;
+}
+
+@media (max-width: 1200px) {
+	.photo-gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
 ol {
     counter-reset: item;
 }
