@@ -58,9 +58,33 @@ HOME_PHOTOS = [
 ]
 
 ABOUT_ME_PARAGRAPHS = [
-    "My name is Mathew Potts. I am a recent Ph.D. graduate from the University of Utah. My thesis research with the Telescope Array (TA) cosmic ray observatory focused on detecting Ultra-High Energy (UHE) particles that interact with Earth's atmosphere. These UHE particles (cosmic rays) induce a cascade of secondary particles called an Extensive Air Shower (EAS). Both the secondary particles and the UV light produced by the EAS can be detected to provide information on the cosmic ray that initiated it. My dissertation was specifically focused on calculating a cosmic ray energy spectrum using TA's newest detector, TAx4. For this energy spectrum I used a hybrid detection technique. The energy spectrum is important because it can provide information about the origin of cosmic rays.",
-    "I am currently working a postdoctoral fellowship at Georgia Institute of Technology working on the Trinity UHE neutrino demonstrator. The Trinity demonstrator is designed to observe earth-skimming neutrinos that interact within the earth producing an upward-going tau lepton. The tau decays after leaving the earth's surface and produces an upward-going EAS. The demonstrator telescope then detects the Cherenkov light produced by that EAS.",
-    "My research interests are to test the standard models of particle physics and cosmology by searching for new phenomena. These paradigms are intricately linked, and there has been tantalizing evidence of new physics with exciting experiments in the areas of neutrinos, dark matter, and cosmic rays. The large scientific interest in these experiments leads me to believe that the fields of high-energy particle physics and cosmology are on the verge of a new period of discovery. To meet this great potential, I have chosen to pursue anomalies in the cosmic ray sector and in cosmology through new physics searches. I believe progress in these areas will depend critically on higher precision measurements and global collaboration between experiments.",
+    '''
+My name is Mathew Potts, and I am an experimental physicist and computational researcher with a Ph.D. in Physics from the University of Utah. My background combines particle and astroparticle physics, scientific computing, Monte Carlo simulation, detector development, data analysis, high-performance computing, and software development. My doctoral research focused on ultra-high-energy cosmic rays with the Telescope Array (TA) observatory. In particular, I developed a measurement of the cosmic-ray energy spectrum using TAx4, the observatory's expanded detector array. My work used hybrid events observed by both surface detectors and fluorescence telescopes, combining complementary measurements of extensive air showers to reconstruct the properties of the primary cosmic rays. This research involved large-scale data analysis, detector characterization, Monte Carlo simulation, statistical analysis, and comparison of experimental data with simulated events.
+
+    ''',
+    '''
+Following my Ph.D., I worked as a postdoctoral researcher at the Georgia Institute of Technology, where I contributed to the Trinity PeV Neutrino Observatory. Trinity is designed to search for very-high-energy, Earth-skimming neutrinos through the upward-going extensive air showers produced following tau-neutrino interactions in the Earth. My work included simulation and analysis supporting the Trinity demonstrator and its detection of Cherenkov light from these air showers.
+
+    ''',
+    '''
+I subsequently worked as a Postdoctoral Research Assistant at Pacific Northwest National Laboratory (PNNL), where my research expanded into detector physics, low-background experiments, scientific computing, and national-security applications. My work included Geant4 and CORSIKA Monte Carlo simulations, detector calibration and analysis, and experimental work involving germanium and cryogenic detector systems. I contributed to projects associated with experiments including SuperCDMS and BeEST and worked in dilution-refrigerator and clean-laboratory environments.
+
+    ''',
+    '''
+Throughout my research career, I have developed scientific software primarily in C++, Python, and C, with extensive experience working in Linux and high-performance computing environments. I have built and maintained simulation and analysis workflows using technologies including Geant4, ROOT, CORSIKA, CUDA, SLURM, CMake, NumPy, SciPy, pandas, and PyTorch. My work has included running and analyzing tens of thousands of computational jobs, developing custom simulation and analysis software, debugging complex scientific codebases, and translating physical models into computational implementations.
+
+    ''',
+    '''
+More recently, I have been expanding my GPU-computing experience by developing a CUDA-based N-body simulator from scratch. This project includes GPU kernel development, memory tiling, investigation of thread and warp configurations, performance benchmarking using CUDA events, visualization, and comparisons of different approaches to GPU memory and computation.
+
+    ''',
+    '''
+I also have experience applying modern AI tools to software and scientific workflows. I have worked with large language models, the OpenAI API, AI agents, and agentic frameworks, including developing automated tools that process job descriptions and generate tailored professional documents. I am interested in using AI and machine learning as practical tools for scientific computing, software engineering, data analysis, and automation while maintaining appropriate validation and human oversight.
+
+    ''',
+    '''
+My broader research and technical interests center on using computation, instrumentation, and data to solve difficult scientific and engineering problems. I am particularly interested in high-performance and GPU computing, scientific software engineering, detector and simulation development, AI/ML-assisted computing, and applying my physics background to problems beyond traditional academic research.
+    ''',
 ]
 
 RESEARCH_EXPERIENCE = [
@@ -70,7 +94,12 @@ RESEARCH_EXPERIENCE = [
         "logo": "../assets/images/pnnl-logo.png",
         "alt": "Pacific Northwest National Lab Logo",
         "details": "Pacific Northwest National Lab<br>Richland, Washington<br>Manager: Bryan Fulsom",
-        "bullets": ["TBA", "TBA", "TBA"],
+        "bullets": [
+            "Developed and analyzed Geant4 and CORSIKA Monte Carlo simulations for experimental physics and national-security research projects.",
+            "Conducted detector research in dilution-refrigerator and clean-laboratory environments supporting the SuperCDMS and BeEST experiments.",
+            "Applied computational modeling, detector analysis, and experimental techniques to characterize and support particle-physics research.",
+            "Performed national-security research under Department of Energy Q clearance.",
+        ],
     },
     {
         "title": "High Energy Neutrino Research",
@@ -79,9 +108,14 @@ RESEARCH_EXPERIENCE = [
         "alt": "Trinity Neutrino Experiment Logo",
         "details": "Trinity Demonstrator Telescope<br>Georgia Institute of Technology, School of Physics<br>PI: Otte Nepomuk",
         "bullets": [
-            "Helped develop the hardware, software, and Monte Carlo simulations for the Trinity Demonstrator.",
-            "Managed/tutored undergraduates and graduate students.",
-            "Played a key role in the implementation of the remote operation of the Demonstrator.",
+            "Led development, integration, and testing of the Trinity Demonstrator telescope across electronics, optics, data acquisition (DAQ), cooling, and camera systems.",
+            "Designed and implemented remote-observation procedures, software, and hardware to enable remote operation of the Trinity Demonstrator.",
+            "Built, integrated, and tested telescope subsystems from individual components through system-level operation, troubleshooting hardware and software issues during development and testing.",
+            "Designed and tested the cooling system for the EUSO-SPB2 Cherenkov telescope, integrating thermal-control requirements with detector and optical systems.",
+            "Developed and ran CORSIKA, GrOptics, and C++ simulations to characterize the performance of the Trinity Observatory and Demonstrator telescope.",
+            "Managed and provided technical direction to a team of approximately five graduate and undergraduate researchers, assigning research tasks, coordinating priorities, reviewing results, and troubleshooting technical issues.",
+            "Mentored graduate and undergraduate researchers in experimental design, electronics, optics, DAQ, software development, simulation, data analysis, and scientific communication.",
+            "Coordinated hardware development, software, simulation, and experimental activities across multiple research projects to meet project milestones.",
         ],
     },
     {
@@ -91,10 +125,11 @@ RESEARCH_EXPERIENCE = [
         "alt": "Telescope Array Logo",
         "details": "Telescope Array Cosmic Ray Observatory<br>University of Utah, Department of Physics and Astronomy<br>Research Advisor: <a href=\"https://faculty.utah.edu/u0035487-CHARLES_JUI/hm/index.hml\" target=\"_blank\">Charles Jui</a><br>Thesis: <a href=\"UHECR_energy_spec.html\">Ultra High Energy Cosmic Ray Energy Spectrum using Hybrid Analysis with TAx4</a><br>Thesis Defense Slides: <a href=\"https://docs.google.com/presentation/d/1XjKTnhM_FJhsQyar7xkNWjNmCF2YZYyiSXctHDwY0oM/edit?usp=sharing\">pptx</a>, <a href=\"../assets/docs/Ph.D. Defense.pdf\">pdf</a>",
         "bullets": [
-            "Analyzed the data for the new TA expansion, TAx4, to calculate the energy spectrum of ultra-high energy cosmic rays using hybrid detection.",
-            "Maintained and operated surface and fluorescence detectors for cosmic ray data collection.",
-            "Linux systems administrator of the Telescope Array's data server and computational cluster at the University of Utah.",
-            "Analyzed fluorescence detector sensitivity to energy and development of cosmic ray interactions in the atmosphere through Monte Carlo simulation using CERN's ROOT data analysis framework.",
+            "Analyzed two years of TAx4 hybrid-detection data to calculate the ultra-high-energy cosmic-ray energy spectrum from above 1 EeV through the Greisen-Zatsepin-Kuzmin (GZK) cutoff.",
+            "Maintained and operated surface and fluorescence detectors used for cosmic-ray data collection.",
+            "Administered the Telescope Array Linux data server and computational cluster, supporting scientific computing and data-analysis workflows.",
+            "Developed Monte Carlo simulations to characterize fluorescence-detector energy sensitivity and cosmic-ray interactions in the atmosphere.",
+            "Processed reconstructed detector data using histogram-based analysis and CERN ROOT fitting workflows.",
         ],
     },
     {
@@ -124,20 +159,29 @@ RESEARCH_EXPERIENCE = [
 ]
 
 PUBLICATIONS = [
-    "M. Potts and C. Jui (TA Collaboration). <a href=\"../assets/docs/ICRC2021_343.pdf\" target=\"_blank\">Monocular Energy Spectrum using the TAx4 Fluorescence Detector.</a> Proceedings of Science (ICRC2021) 343.",
-    "R. U. Abbasi et al. (TA Collaboration). <a href=\"../assets/docs/TAX4SD_paper.pdf\" target=\"_blank\">Surface detectors of the TAx4 experiment.</a> Nuclear Instruments and Methods in Physics Research (2021).",
-    "R. U. Abbasi et al. (TA Collaboration). <a href=\"../assets/docs/Gamma-flash_paper.pdf\">Observations of the Origin of Downward Terrestrial Gamma-Ray Flashes.</a> Journal of Geophysical Research: Atmospheres 123 (2018).",
-    "S. Atwood et al. (sFLASH Collaboration). <a href=\"../assets/docs/sFLASH_instruments_PoS(INSCC2017)407.pdf\" target=\"_blank\">The Instruments of sFLASH experiment.</a> Proceedings of Science (ICRC2017) 407.",
+    "M.F. Albakry et al. (SuperCDMS Collaboration). Calibration and Performance of Germanium High Voltage Detectors for SuperCDMS SNOLAB. 2026.",
+    "A. Armatol et al. (TESSERACT Collaboration). Low Energy Phonon Bursts Created By Fast Neutron Damage. 2026.",
+    "M. Bagheri et al. (Trinity Collaboration). The Camera and Readout for the Trinity Demonstrator and the EUSO-SPB2 Cherenkov Telescope. Nuclear Instruments and Methods in Physics Research, 2024.",
+    "M. Potts. Ultra-High Energy Cosmic Ray Energy Spectrum Using Hybrid Analysis with TAx4. Dissertation, 2022.",
+    "R.U. Abbasi et al. (TA Collaboration). Indications of a Cosmic Ray Source in the Perseus-Pices Supercluster. 2021.",
+    "M. Potts and C. Jui (TA Collaboration). <a href=\"../assets/docs/ICRC2021_343.pdf\" target=\"_blank\">Monocular Energy Spectrum using the TAx4 Fluorescence Detector.</a> Proceedings of Science (ICRC2021), 343.",
+    "R.U. Abbasi et al. (TA Collaboration). <a href=\"../assets/docs/TAX4SD_paper.pdf\" target=\"_blank\">Surface detectors of the TAx4 experiment.</a> Nuclear Instruments and Methods in Physics Research, 2021.",
+    "S. Atwood et al. (sFLASH Collaboration). <a href=\"../assets/docs/sFLASH_instruments_PoS(INSCC2017)407.pdf\" target=\"_blank\">The Instruments of sFLASH experiment.</a> Proceedings of Science (ICRC2017), 407.",
 ]
 
 TALKS = [
-    "M. Potts. Progress on Trinity, an IACT searching for UHE Neutrinos. APS April Meeting; 2023, seminar talk.",
-    "M. Potts. <a href=\"../assets/docs/TAx4 Energy Spectrum.pdf\" target=\"_blank\">Ultra-High Energy Spectrum using Hybrid Analysis with TAx4</a>. Los Alamos National Lab/Stanford Linear Accelerator Center; 2021, seminar talk.",
-    "M. Potts. <a href=\"../assets/docs/TAx4 Energy Spectrum.pdf\" target=\"_blank\">Ultra-High Energy Spectrum using Hybrid Analysis with TAx4</a>. Georgia Tech; 2021, undergraduate seminar.",
-    "M. Potts on behalf of TA. <a href=\"https://docs.google.com/presentation/d/1H_zGOqbjo2MiBdsdOZY25oFQGV-H_MDziW16CddsWj0/edit?usp=sharing\" target=\"_blank\">Monocular Energy Spectrum using the TAx4 Fluorescence Detector.</a> International Cosmic Ray Conference, Berlin, Germany, July 2021.",
-    "M. Potts on behalf of TA. <a href=\"../assets/docs/ResearchSympPoster.pdf\" target=\"_blank\">TAx4 Cosmic Ray Energy Spectrum (Poster).</a> Physics and Astronomy Research Symposium, University of Utah, Salt Lake City, UT, April 2020.",
-    "M. Potts and Jonathan Barnes. <a href=\"https://docs.google.com/presentation/d/14i3i0Zl2fZQMNm-Fr-Jk-oxOaoD44S1b/edit?usp=sharing&ouid=115602461398853445865&rtpof=true&sd=true\" target=\"_blank\">A Closer Look at the KOI-22 Light Curve.</a> Research Symposium, Salt Lake Community College, Salt Lake City, UT, 2015.",
-    "M. Potts and Jonathan Barnes. <a href=\"https://docs.google.com/presentation/d/14i3i0Zl2fZQMNm-Fr-Jk-oxOaoD44S1b/edit?usp=sharing&ouid=115602461398853445865&rtpof=true&sd=true\" target=\"_blank\">A Closer Look at the KOI-22 Light Curve.</a> Salt Lake Astronomical Society Meeting, Salt Lake City, UT, 2015.",
+    "M. Potts. Simulation of BeEST Photopeak Calibration. American Physical Society Meeting, 2026.",
+    "M. Potts. The SuperCDMS Experiment at SNOLAB. American Physical Society Meeting, 2026.",
+    "M. Potts. Searching for Dark Matter using SuperCDMS at SNOLAB. PoGo Symposium, 2024.",
+    "M. Potts. Progress on Trinity, an IACT Searching for UHE Neutrinos. American Physical Society April Meeting, 2023.",
+    "M. Potts. Trinity: UHE Earth-Skimming Neutrino Detector. P5 Town Hall at Fermilab and Argonne, 2023.",
+    "M. Potts. Ultra-High Energy Cosmic Ray Energy Spectrum Using Hybrid Analysis with TAx4. American Physical Society April Meeting, 2022.",
+    "M. Potts. <a href=\"../assets/docs/TAx4 Energy Spectrum.pdf\" target=\"_blank\">Ultra-High Energy Spectrum Using Hybrid Analysis with TAx4</a>. Los Alamos National Laboratory / Stanford Linear Accelerator Center, 2021.",
+    "M. Potts. <a href=\"../assets/docs/TAx4 Energy Spectrum.pdf\" target=\"_blank\">Ultra-High Energy Spectrum Using Hybrid Analysis with TAx4</a>. Georgia Institute of Technology, 2021.",
+    "M. Potts, on behalf of TA. <a href=\"https://docs.google.com/presentation/d/1H_zGOqbjo2MiBdsdOZY25oFQGV-H_MDziW16CddsWj0/edit?usp=sharing\" target=\"_blank\">Monocular Energy Spectrum Using the TAx4 Fluorescence Detector.</a> ICRC, 2021.",
+    "M. Potts, on behalf of TA. <a href=\"../assets/docs/ResearchSympPoster.pdf\" target=\"_blank\">TAx4 Cosmic Ray Energy Spectrum.</a> University of Utah Research Symposium, 2020.",
+    "M. Potts and Jonathan Barnes. <a href=\"https://docs.google.com/presentation/d/14i3i0Zl2fZQMNm-Fr-Jk-oxOaoD44S1b/edit?usp=sharing&ouid=115602461398853445865&rtpof=true&sd=true\" target=\"_blank\">A Closer Look at the KOI-22 Light Curve.</a> Research Symposium, Salt Lake Community College, 2015.",
+    "M. Potts and Jonathan Barnes. <a href=\"https://docs.google.com/presentation/d/14i3i0Zl2fZQMNm-Fr-Jk-oxOaoD44S1b/edit?usp=sharing&ouid=115602461398853445865&rtpof=true&sd=true\" target=\"_blank\">A Closer Look at the KOI-22 Light Curve.</a> Salt Lake Astronomical Society Meeting, 2015.",
 ]
 
 PROJECTS = [
