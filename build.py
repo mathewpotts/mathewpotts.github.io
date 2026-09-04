@@ -66,7 +66,7 @@ ABOUT_ME_PARAGRAPHS = [
 RESEARCH_EXPERIENCE = [
     {
         "title": "Pacific Northwest National Lab",
-        "dates": "Summer 2024 - Present",
+        "dates": "Summer 2024 - Fall 2026",
         "logo": "../assets/images/pnnl-logo.png",
         "alt": "Pacific Northwest National Lab Logo",
         "details": "Pacific Northwest National Lab<br>Richland, Washington<br>Manager: Bryan Fulsom",
@@ -86,7 +86,7 @@ RESEARCH_EXPERIENCE = [
     },
     {
         "title": "Ultra High Energy Cosmic Ray Research",
-        "dates": "Fall 2015 - Present",
+        "dates": "Fall 2015 - Fall 2024",
         "logo": "../assets/images/TALogo.png",
         "alt": "Telescope Array Logo",
         "details": "Telescope Array Cosmic Ray Observatory<br>University of Utah, Department of Physics and Astronomy<br>Research Advisor: <a href=\"https://faculty.utah.edu/u0035487-CHARLES_JUI/hm/index.hml\" target=\"_blank\">Charles Jui</a><br>Thesis: <a href=\"UHECR_energy_spec.html\">Ultra High Energy Cosmic Ray Energy Spectrum using Hybrid Analysis with TAx4</a><br>Thesis Defense Slides: <a href=\"https://docs.google.com/presentation/d/1XjKTnhM_FJhsQyar7xkNWjNmCF2YZYyiSXctHDwY0oM/edit?usp=sharing\">pptx</a>, <a href=\"../assets/docs/Ph.D. Defense.pdf\">pdf</a>",
@@ -99,7 +99,7 @@ RESEARCH_EXPERIENCE = [
     },
     {
         "title": "Accelerator Research",
-        "dates": "Fall 2015 - Present",
+        "dates": "Fall 2015 - Fall 2022",
         "logo": "../assets/images/slac_logo.png",
         "alt": "SLAC Logo",
         "details": "sFLASH Collaboration<br>Stanford Linear Accelerator Center, National Accelerator Laboratory<br>Proceedings/Publications: <a href=\"../assets/docs/sFLASH_instruments_PoS(INSCC2017)407.pdf\" target=\"_blank\">Instruments of sFLASH</a>",
@@ -142,9 +142,39 @@ TALKS = [
 
 PROJECTS = [
     {
+            "title": "CUDA N-body Simulation of Gravitational Systems",
+            "url": "CUDA_Nbody.html",
+            "dates": "Fall, 2026 - Present",
+            "description": "A fun personal project to learn CUDA programming, simulating, and displaying gravitational systems.",
+    },
+    {
+                "title": "OpenAI Resume Tailoring",
+                "url": "OpenAI_Resume_Tailoring.html",
+                "dates": "Fall, 2026 - Present",
+                "description": "A fun personal project to learn OpenAI programming, simulating, and displaying resume tailoring capabilities.",
+    },
+    {
+                    "title": "SuperCDMS CUTE Germainium Detector Calibration",
+                    "url": "SuperCDMS.html",
+                    "dates": "Fall, 2024 - Present",
+                    "description": "Pulished research on the calibration of the SuperCDMS CUTE germanium detector using various sources. My contributions were mainly in data analysis and validation of the low energy neutron activation using 252Cf.",
+    },
+    {
+                        "title": "cdmsproctools: SuperCDMS's Offline Data Validation (ODV)",
+                        "url": "cdmsproctools.html",
+                        "dates": "Spring, 2025 - Fall, 2026",
+                        "description": "A fun personal project to learn OpenAI programming, simulating, and displaying resume tailoring capabilities.",
+    },
+    {
+                            "title": "SuperCDMS Global Mappings",
+                            "url": "globalmappings.html",
+                            "dates": "Spring, 2025 - Fall, 2026",
+                            "description": "A fun personal project to learn OpenAI programming, simulating, and displaying resume tailoring capabilities.",
+    },
+    {
         "title": "Comic Ray Species Identification with Machine Learning",
         "url": "TALEML.html",
-        "dates": "November, 2023 - Present",
+        "dates": "November, 2023 - May, 2024",
         "description": "TALE extends cosmic ray detection down to energies of 10 PeV. I am studying whether reconstructed shower parameters can identify the primary cosmic ray in Monte Carlo data.",
     },
     {
